@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 using System.Configuration;
 using prog7311poeTask2.Models;
 
@@ -53,11 +54,113 @@ namespace prog7311poeTask2.Repository
             return ProductList;
         }
 
+        public List<ProductModel> GetAllHardwareProducts()
+        {
+            Connection();
+            List<ProductModel> ProductList = new List<ProductModel>();//creating a list to populate from the databast
+
+            SqlCommand GetCommand = new SqlCommand("GetAllHardwareProducts", conn);
+            GetCommand.CommandType = CommandType.StoredProcedure;//using the stored procedure from the database
+            SqlDataAdapter da = new SqlDataAdapter(GetCommand);
+            DataTable dt = new DataTable();
+
+            conn.Open();
+            da.Fill(dt);
+            conn.Close();
+            //list is binded using a data row
+            foreach (DataRow dr in dt.Rows)
+            {
+                ProductList.Add(
+                    new ProductModel
+                    {//conversions
+                        PId = Convert.ToInt32(dr["ProductId"]),
+                        ProductName = Convert.ToString(dr["ProductName"]),
+                        ProductDescription = Convert.ToString(dr["ProductDescription"]),
+                        ProductCategory = Convert.ToString(dr["ProductCategory"]),
+                        ProductPrice = Convert.ToInt32(dr["ProductPrice"]),
+                        ProductPic = Convert.ToString(dr["ProductPic"]),
+                    }
+                    );
+            }
+            return ProductList;
+        }
+
+        public List<ProductModel> GetAllSoftwareProducts()
+        {
+            Connection();
+            List<ProductModel> ProductList = new List<ProductModel>();//creating a list to populate from the databast
+
+            SqlCommand GetCommand = new SqlCommand("GetAllSoftwareProducts", conn);
+            GetCommand.CommandType = CommandType.StoredProcedure;//using the stored procedure from the database
+            SqlDataAdapter da = new SqlDataAdapter(GetCommand);
+            DataTable dt = new DataTable();
+
+            conn.Open();
+            da.Fill(dt);
+            conn.Close();
+            //list is binded using a data row
+            foreach (DataRow dr in dt.Rows)
+            {
+                ProductList.Add(
+                    new ProductModel
+                    {//conversions
+                        PId = Convert.ToInt32(dr["ProductId"]),
+                        ProductName = Convert.ToString(dr["ProductName"]),
+                        ProductDescription = Convert.ToString(dr["ProductDescription"]),
+                        ProductCategory = Convert.ToString(dr["ProductCategory"]),
+                        ProductPrice = Convert.ToInt32(dr["ProductPrice"]),
+                        ProductPic = Convert.ToString(dr["ProductPic"]),
+                    }
+                    );
+            }
+            return ProductList;
+        }
+
+        public List<ProductModel> GetAllOtherProducts()
+        {
+            Connection();
+            List<ProductModel> ProductList = new List<ProductModel>();//creating a list to populate from the databast
+
+            SqlCommand GetCommand = new SqlCommand("GetAllOtherProducts", conn);
+            GetCommand.CommandType = CommandType.StoredProcedure;//using the stored procedure from the database
+            SqlDataAdapter da = new SqlDataAdapter(GetCommand);
+            DataTable dt = new DataTable();
+
+            conn.Open();
+            da.Fill(dt);
+            conn.Close();
+            //list is binded using a data row
+            foreach (DataRow dr in dt.Rows)
+            {
+                ProductList.Add(
+                    new ProductModel
+                    {//conversions
+                        PId = Convert.ToInt32(dr["ProductId"]),
+                        ProductName = Convert.ToString(dr["ProductName"]),
+                        ProductDescription = Convert.ToString(dr["ProductDescription"]),
+                        ProductCategory = Convert.ToString(dr["ProductCategory"]),
+                        ProductPrice = Convert.ToInt32(dr["ProductPrice"]),
+                        ProductPic = Convert.ToString(dr["ProductPic"]),
+                    }
+                    );
+            }
+            return ProductList;
+        }
 
         //adding new products
 
         public bool AddProduct(ProductModel obj)
         {
+            string FileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName) ;
+            string FileExtension = Path.GetExtension(obj.ImageFile.FileName);
+
+            string relativePath = ConfigurationManager.AppSettings["ImagePath"].ToString();
+
+            FileName = FileName.Trim() + FileExtension;
+
+            obj.ProductPic = relativePath + FileName;
+
+
             Connection();
             SqlCommand AddCommand = new SqlCommand("AddNewProduct", conn);
             AddCommand.CommandType = CommandType.StoredProcedure;

@@ -241,6 +241,9 @@
     <Content Include="Views\Product\GetAllProducts.cshtml" />
     <Content Include="Views\Product\AddProduct.cshtml" />
     <Content Include="Views\Product\EditProduct.cshtml" />
+    <Content Include="Views\Product\GetAllHardwareProducts.cshtml" />
+    <Content Include="Views\Product\GetAllSoftwareProducts.cshtml" />
+    <Content Include="Views\Product\GetAllOtherProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

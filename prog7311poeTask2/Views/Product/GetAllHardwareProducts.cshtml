@@ -1,19 +1,5 @@
 ﻿@model IEnumerable<prog7311poeTask2.Models.ProductModel>
 
-<p>
-    @Html.ActionLink("Add New Product", "AddProduct")
-</p>
-<p>@Html.ActionLink("Hardware Products", "GetAllHardwareProducts")</p>
-<p>@Html.ActionLink("Software Products", "GetAllSoftwareProducts")</p>
-<p>@Html.ActionLink("Other Products", "GetAllOtherProducts")</p>
-
-<p>
-    @using (Html.BeginForm("GetAllProducts", "Product", FormMethod.Get))
-    {
-        <input type="text" name="prodSearch" />
-        <input type="submit" value="Search" name="submit"/>
-        }
-</p>
 <table class="table">
     <tr>
         <th>
@@ -54,7 +40,11 @@
             </td>
             
         </tr>
-
     }
 
+
 </table>
+
+<div>
+    @Html.ActionLink("Back to List of all Products", "GetAllProducts")
+</div>
