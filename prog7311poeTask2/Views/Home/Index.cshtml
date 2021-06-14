@@ -2,40 +2,47 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron" style="background-color:lemonchiffon">
     <h1>ACME INC</h1>
     <p class="lead">Welcome to ACME INC , we are a world class online tech and merchandise store</p>
 </div>
 
-<div class="row">
-    <div class="col-sm-3">
+<div class="row" style="background-color:antiquewhite">
+    <div class="col-sm-3" >
         <h2>Hardware</h2>
         <p>
-            Looking to Updrage your life with some new modern hardware , have a look at our wide range of Hardware, we have all the latest hardware available from our suppliers worldwide, and a 5 year warranty on everything. Have a look at the link below.
+            Looking to Upgrade your life with some new modern hardware , have a look at our wide range of Hardware, we have all the latest hardware available from our suppliers worldwide, and a 5 year warranty on everything. Have a look, click the button below.
         </p>
         <div>
-            @Html.ActionLink("Go to Hardware Products", "../Product/GetAllHardwareProducts")
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllHardwareProducts", "Product")';return false;">Hardware Products</button>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" >
         <h2>Software</h2>
-        <p>Need a software Update?...we have the most up to date software packages with the latest security patches and best support, have a look at our Software category by clicking the link below.</p>
+        <p>Need a software Update?...we have the most up to date software packages with the latest security patches and best support, have a look at our Software category by clicking the button below.</p>
         <div>
-            @Html.ActionLink("Go to Software Products", "../Product/GetAllSoftwareProducts")
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllSoftwareProducts", "Product")';return false;">Software Products</button>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" >
         <h2>Accessories and other merchandise</h2>
-        <p>looking for other interesting products , have a look at the link below to see all the other odd things we sell.</p>
+        <p>looking for other interesting products , click the button below to see all the other odd things we sell.</p>
         <div>
-            @Html.ActionLink("Go to Accessories and other", "../Product/GetAllOtherProducts")
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllOtherProducts", "Product")';return false;">Accessories and Other</button>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" >
         <h2>Everything</h2>
-        <p>Not findong what youre looking for in the categories? ....have a look at the link below to search our store for a specific product.</p>
+        <p>Not findong what youre looking for in the categories? ....click the button below to search our store for a specific product.</p>
         <div>
-            @Html.ActionLink("List of all Products", "../Product/GetAllProducts")
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllProducts", "Product")';return false;">Search All Products</button>
         </div>
     </div>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

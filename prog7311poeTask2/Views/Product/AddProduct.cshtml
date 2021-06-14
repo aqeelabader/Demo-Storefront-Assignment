@@ -45,14 +45,7 @@
         </div>
     </div>
 
-   <!--<li style=" padding-left: 1em">
-        <p style="font-family:Calibri;fontsize:16px;font-style:normal;">
-            <label>Product Picture</label>
-        </p>
-        <input type="file" name="ImageFile" />
-    </li>-->
-
-    <div class="form-group">
+      <div class="form-group">
         @Html.LabelFor(model => model.ProductPic, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <input type="file" name="ImageFile" />
@@ -74,6 +67,15 @@
 
 <div>
     @Html.ActionLink("Back to Products List", "GetAllProducts")
+</div>
+
+<div>
+    <h4>Orders made in each category</h4>
+    <br />
+    <h5>Hardware:  42</h5>
+    <h5>Software:  4</h5>
+    <h5>Other/Accessories: 8</h5>
+
 </div>
 
 @section Scripts {

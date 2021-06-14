@@ -1,19 +1,28 @@
 ﻿@model IEnumerable<prog7311poeTask2.Models.ProductModel>
 
+<h3>This page contains all of our products</h3>
+<h4>If its not in the list below , then we dont keep it unfortunately</h4>
+<br />
+<h4> To see Items in a specific category , choose from the categories below</h4>
 <p>
-    @Html.ActionLink("Add New Product", "AddProduct")
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllHardwareProducts", "Product")';return false;">Hardware Products</button>
 </p>
-<p>@Html.ActionLink("Hardware Products", "GetAllHardwareProducts")</p>
-<p>@Html.ActionLink("Software Products", "GetAllSoftwareProducts")</p>
-<p>@Html.ActionLink("Other Products", "GetAllOtherProducts")</p>
-
+<p>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllSoftwareProducts", "Product")';return false;">Software Products</button>
+</p>
+<p>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("GetAllOtherProducts", "Product")';return false;">Accessories and Other</button>
+</p>
+<br />
+<h4> To Search for a Specific product, Use the Search bar below.</h4><br />
 <p>
     @using (Html.BeginForm("GetAllProducts", "Product", FormMethod.Get))
     {
         <input type="text" name="prodSearch" />
-        <input type="submit" value="Search" name="submit"/>
-        }
+        <input type="submit" value="Search" name="submit" />
+    }
 </p>
+<br />
 <table class="table">
     <tr>
         <th>
@@ -52,9 +61,43 @@
             <td>
                 <img class="profilePicture" src="@item.ProductPic" alt="@item.ProductPic" />
             </td>
-            
+            <td>
+                <button class="btn btn-link">
+                    @Html.ActionLink("Add to Cart", "Cart", new { id = item.PId })
+                </button>
+            </td>
+
         </tr>
 
     }
 
 </table>
+
+<p>
+    <h4>click the button below to go back to the homepage</h4>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")';return false;">Home</button>
+
+</p>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<p>Admin only : @Html.ActionLink("Admin dashboard", "AddProduct")</p>

@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<prog7311poeTask2.Models.ProductModel>
+<div class="jumbotron" style="background-color:lemonchiffon">
+    <h2>Hardware</h2>
+    <h3>This is all the hardware we sell</h3>
+</div>
 
+<br />
 <table class="table">
     <tr>
         <th>
@@ -38,13 +43,21 @@
             <td>
                 <img class="profilePicture" src="@item.ProductPic" alt="@item.ProductPic" />
             </td>
-            
+            <td>
+                <button class="btn btn-link">
+                    @Html.ActionLink("Add to Cart", "Cart", new { id = item.PId })
+                </button>
+            </td>
+
         </tr>
+
     }
 
-
 </table>
-
 <div>
-    @Html.ActionLink("Back to List of all Products", "GetAllProducts")
+
+    <p>
+        <h4>click the button below to go back to the homepage</h4>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")';return false;">Home</button>
+    </p>
 </div>

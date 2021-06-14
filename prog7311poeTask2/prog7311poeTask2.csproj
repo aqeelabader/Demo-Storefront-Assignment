@@ -244,6 +244,9 @@
     <Content Include="Views\Product\GetAllHardwareProducts.cshtml" />
     <Content Include="Views\Product\GetAllSoftwareProducts.cshtml" />
     <Content Include="Views\Product\GetAllOtherProducts.cshtml" />
+    <Content Include="Views\Product\Cart.cshtml" />
+    <Content Include="Views\Product\Success.cshtml" />
+    <Content Include="Views\Product\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

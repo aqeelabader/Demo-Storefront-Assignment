@@ -1,0 +1,46 @@
+﻿
+<div>
+    <form>
+        <div class="form-group">
+            <h3>Payment Info</h3>
+            <div>
+                <br />
+                <h4>Please enter your card details below</h4>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Full Name</label>
+            <div>
+                <input type="email" class="form-control" placeholder="Enter the name shown on card">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Card number</label>
+            <div>
+                <input type="email" class="form-control" placeholder="enter your card number here">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>CVV number</label>
+            <div>
+                <input type="email" class="form-control" placeholder="Enter your cvv number here">
+            </div>
+        </div>
+        <div class="form-group">
+            <br />
+            <label>Shipping address</label>
+            <div>
+                <br />
+                <input type="email" class="form-control" placeholder="Please enter your shipping address here">
+            </div>
+        </div>
+        <div class="form-group">
+            <br />
+            <h4>click the button below to confirm payment</h4>
+            <div><br />
+                <button class="btn btn-success" onclick="location.href='@Url.Action("Success", "Product")';return false;">Pay Now</button>
+            </div>
+        </div>
+    </form>
+
+</div>
